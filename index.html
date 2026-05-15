@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Your Expensive Skincare Stops Working After 40 | The Skin Health Journal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:       #faf7f2;
+  --cream-mid:   #f3ede4;
+  --cream-dark:  #ecdfd0;
+  --gold:        #a1846c;
+  --gold-light:  #c9a98a;
+  --gold-pale:   #e8d9c8;
+  --charcoal:    #1e1b18;
+  --charcoal-mid:#3a3530;
+  --muted:       #8a7f76;
+  --body-text:   #3d3530;
+  --white:       #ffffff;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--body-text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── SCROLL REVEAL ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(.16,1,.3,1), transform 0.9s cubic-bezier(.16,1,.3,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+
+/* ─── TOP BAR ─── */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--cream-dark);
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.top-bar-journal {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+.top-bar-dot {
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--gold-pale);
+}
+.top-bar-date {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* ─── HERO ─── */
+.hero {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 80px 28px 60px;
+  text-align: center;
+}
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+.hero-kicker::before,
+.hero-kicker::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--gold-pale);
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 5.5vw, 58px);
+  font-weight: 400;
+  line-height: 1.18;
+  color: var(--charcoal);
+  letter-spacing: -0.01em;
+  margin-bottom: 28px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero-sub {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 560px;
+  margin: 0 auto 48px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+.hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 52px;
+}
+.hero-meta-sep { color: var(--gold-pale); }
+
+/* ─── HERO IMAGE ─── */
+.hero-img-wrap {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto 80px;
+  padding: 0 0;
+}
+.hero-img-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  background: linear-gradient(135deg, var(--gold-pale) 0%, transparent 60%);
+  border-radius: 2px;
+  z-index: 0;
+  opacity: 0.5;
+}
+.hero-img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 1;
+  border-radius: 1px;
+  /* Placeholder gradient when no image */
+  background: linear-gradient(160deg, #e8ddd1 0%, #d4c4b0 40%, #c2a98a 100%);
+}
+.hero-img-caption {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 14px;
+  font-style: italic;
+}
+
+/* ─── ARTICLE BODY ─── */
+.article {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.article h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 3.8vw, 36px);
+  font-weight: 400;
+  color: var(--charcoal);
+  line-height: 1.25;
+  margin-bottom: 22px;
+  letter-spacing: -0.01em;
+}
+.article h2 em { font-style: italic; color: var(--gold); }
+
+.article p {
+  font-size: 17px;
+  line-height: 1.82;
+  color: var(--body-text);
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+
+.article p strong {
+  font-weight: 500;
+  color: var(--charcoal);
+}
+
+/* ─── SECTION DIVIDER ─── */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 64px auto;
+  max-width: 680px;
+  padding: 0 28px;
+}
+.divider-line { flex: 1; height: 1px; background: var(--cream-dark); }
+.divider-ornament {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--gold);
+  line-height: 1;
+  font-weight: 300;
+}
+
+/* ─── PULL QUOTE ─── */
+.pull-quote {
+  max-width: 860px;
+  margin: 56px auto;
+  padding: 52px 60px;
+  background: var(--charcoal);
+  position: relative;
+  overflow: hidden;
+}
+.pull-quote::before {
+  content: '\201C';
+  font-family: 'Playfair Display', serif;
+  font-size: 200px;
+  color: var(--gold);
+  opacity: 0.12;
+  position: absolute;
+  top: -40px;
+  left: 20px;
+  line-height: 1;
+  pointer-events: none;
+}
+.pull-quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3.2vw, 32px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--cream);
+  line-height: 1.45;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 20px;
+  letter-spacing: 0.01em;
+}
+.pull-quote-source {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── PHILOSOPHY BAND ─── */
+.philosophy {
+  background: var(--cream-mid);
+  padding: 80px 28px;
+  margin: 64px 0;
+  text-align: center;
+}
+.philosophy-inner { max-width: 620px; margin: 0 auto; }
+.philosophy-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+.philosophy h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4.2vw, 44px);
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 28px;
+  line-height: 1.2;
+}
+.philosophy-metaphor {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2.6vw, 24px);
+  font-style: italic;
+  color: var(--charcoal-mid);
+  line-height: 1.55;
+  margin-bottom: 24px;
+  border-left: 2px solid var(--gold);
+  padding-left: 24px;
+  text-align: left;
+}
+.philosophy p {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ─── PROTOCOL STEPS ─── */
+.protocol-section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 64px 28px;
+}
+.protocol-heading {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.protocol-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 14px;
+}
+.protocol-heading p {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 500px;
+  margin: 0 auto;
+  font-weight: 300;
+}
+.protocol-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--cream-dark);
+}
+.protocol-step {
+  padding: 44px 32px;
+  text-align: center;
+  position: relative;
+  background: var(--white);
+  border-right: 1px solid var(--cream-dark);
+  transition: background 0.3s ease;
+}
+.protocol-step:last-child { border-right: none; }
+.protocol-step:hover { background: var(--cream-mid); }
+.step-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: block;
+}
+.step-icon {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 22px;
+}
+.protocol-step h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 12px;
+}
+.protocol-step p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ─── TESTIMONIAL ─── */
+.testimonial-section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 28px 64px;
+}
+.testimonial-card {
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  padding: 56px;
+  position: relative;
+}
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: linear-gradient(to bottom, var(--gold), var(--gold-pale));
+}
+.testimonial-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+.star {
+  width: 14px; height: 14px;
+  background: var(--gold);
+  clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+}
+.testimonial-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2.8vw, 26px);
+  font-style: italic;
+  color: var(--charcoal);
+  line-height: 1.55;
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+.testimonial-name {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+/* ─── STATS ROW ─── */
+.stats-section {
+  background: var(--charcoal);
+  padding: 72px 28px;
+  margin: 0;
+}
+.stats-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+.stats-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  font-weight: 500;
+  margin-bottom: 52px;
+  display: block;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+.stat-item {}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 7vw, 72px);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 10px;
+  display: block;
+}
+.stat-num span { color: var(--gold-light); font-size: 0.55em; vertical-align: super; }
+.stat-label {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ─── CTA ─── */
+.cta-section {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 100px 28px;
+  text-align: center;
+}
+.cta-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+.cta-eyebrow::before,
+.cta-eyebrow::after {
+  content: '';
+  display: block;
+  width: 32px; height: 1px;
+  background: var(--gold-pale);
+}
+.cta-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 4.5vw, 48px);
+  font-weight: 400;
+  color: var(--charcoal);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.cta-section h2 em { font-style: italic; color: var(--gold); }
+.cta-section p {
+  font-size: 17px;
+  color: var(--muted);
+  margin-bottom: 40px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--charcoal);
+  color: var(--white);
+  text-decoration: none;
+  padding: 18px 48px;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.3s ease, transform 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.cta-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(.4,0,.2,1);
+}
+.cta-btn:hover { transform: translateY(-2px); }
+.cta-btn:hover::after { transform: translateX(0); }
+.cta-btn span { position: relative; z-index: 1; }
+.cta-guarantee {
+  margin-top: 22px;
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.cta-guarantee::before {
+  content: '✦';
+  font-size: 10px;
+  color: var(--gold);
+}
+.cta-trust-row {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 48px;
+  padding-top: 48px;
+  border-top: 1px solid var(--cream-dark);
+  flex-wrap: wrap;
+}
+.cta-trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.cta-trust-icon { font-size: 20px; }
+.cta-trust-text {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ─── FOOTER BAR ─── */
+.footer-bar {
+  border-top: 1px solid var(--cream-dark);
+  padding: 24px 28px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+.footer-bar a { color: var(--gold); text-decoration: none; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 720px) {
+  .protocol-grid { grid-template-columns: 1fr; }
+  .protocol-step { border-right: none; border-bottom: 1px solid var(--cream-dark); }
+  .protocol-step:last-child { border-bottom: none; }
+  .stats-grid { grid-template-columns: 1fr; gap: 36px; }
+  .pull-quote { padding: 44px 28px; }
+  .testimonial-card { padding: 36px 28px; }
+  .hero-img { height: 300px; }
+  .cta-trust-row { gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP NAV BAR -->
+<div class="top-bar">
+  <span class="top-bar-journal">The Skin Health Journal</span>
+  <span class="top-bar-dot"></span>
+  <span class="top-bar-date">Beauty &amp; Wellness · May 2025</span>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-kicker reveal">Skin Intelligence</div>
+  <h1 class="reveal reveal-delay-1">
+    Why your expensive serums<br>
+    stop working <em>after 40</em>
+  </h1>
+  <p class="hero-sub reveal reveal-delay-2">
+    It is not the formula. It is not your skin type. A certified aesthetician
+    explains the invisible barrier that has been standing between you
+    and the results you deserve.
+  </p>
+  <div class="hero-meta reveal reveal-delay-3">
+    <span>By The Editorial Team</span>
+    <span class="hero-meta-sep">·</span>
+    <span>8 min read</span>
+    <span class="hero-meta-sep">·</span>
+    <span>93,000+ women found their answer</span>
+  </div>
+</section>
+
+<!-- HERO IMAGE -->
+<div class="hero-img-wrap reveal">
+  <!--
+    SHOPIFY: Replace the <div> below with your image tag:
+    <img src="{{ 'advertorial-hero.jpg' | asset_url }}" alt="..." class="hero-img">
+  -->
+  <div class="hero-img" style="
+    display:flex; align-items:center; justify-content:center;
+    background: linear-gradient(160deg, #e8ddd1 0%, #d4c4b0 40%, #c2a98a 100%);">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:14px;letter-spacing:.2em;
+      text-transform:uppercase;color:rgba(255,255,255,.6)">Your hero image here</span>
+  </div>
+  <p class="hero-img-caption">Photo: A softer approach to skin — preparing the surface before it can receive.</p>
+</div>
+
+<!-- ═══ SECTION 1: THE PROBLEM ═══ -->
+<article class="article">
+  <div class="reveal">
+    <h2>You are not imagining it. Your skincare <em>did</em> stop working.</h2>
+    <p>
+      You have the serums. You have the creams. You read the reviews, you invested in the ingredients — retinol, hyaluronic acid, vitamin C, niacinamide. And for a while, it worked. Your skin looked rested, plump, and clear.
+    </p>
+    <p>
+      Then, somewhere around your early forties, the results quietly faded. You added more products. You spent more. You were more diligent than ever. And still, every morning in the mirror, your skin looked <strong>perpetually tired</strong> — even after eight hours of sleep.
+    </p>
+    <p>
+      If this is your story, you are not alone. And more importantly: it is not the products. It is not you. The reason your skincare stopped working has nothing to do with the quality of what is inside your bottles.
+    </p>
+    <p>
+      It has everything to do with <strong>what your skin stopped letting in.</strong>
+    </p>
+  </div>
+</article>
+
+<div class="divider reveal"><div class="divider-line"></div><div class="divider-ornament">✦</div><div class="divider-line"></div></div>
+
+<article class="article">
+  <div class="reveal">
+    <h2>What happens to skin after 40 that no one tells you about</h2>
+    <p>
+      As oestrogen levels begin to shift in your late thirties and forties, your skin undergoes a series of changes far deeper than wrinkles. Among the least discussed — but most impactful — is a dramatic change in how your skin receives topical products.
+    </p>
+    <p>
+      "The stratum corneum — the outermost surface layer of skin — becomes measurably more rigid and less permeable as we age," explains the science behind the GlowFusion protocol. "What was a soft, supple gateway in your twenties becomes a stiff, dense wall in your forties."
+    </p>
+    <p>
+      The result? The same serum you used at 34 that sank in immediately and made your skin glow? At 46, it sits on the surface. It may hydrate the very top layer for a few hours. But it never reaches the dermal depth where real change actually happens.
+    </p>
+    <p>
+      <strong>You have not been wasting money on bad products. You have been wasting money on good products that your skin cannot absorb.</strong>
+    </p>
+  </div>
+</article>
+
+<!-- PULL QUOTE 1 -->
+<blockquote class="pull-quote reveal">
+  <p class="pull-quote-text">
+    "Your products have not failed you. Your skin's surface simply changed its rules — and no one handed you the new instruction manual."
+  </p>
+  <p class="pull-quote-source">The Skin Health Journal · Aesthetician Report</p>
+</blockquote>
+
+<!-- ═══ SECTION 2: PHILOSOPHY ═══ -->
+<div class="philosophy reveal">
+  <div class="philosophy-inner">
+    <p class="philosophy-eyebrow">The Korean Insight</p>
+    <h2>Prep the soil before you water the garden</h2>
+    <p class="philosophy-metaphor">
+      "Think of your face like a garden after a long drought. Pouring water on dry, hardened soil does nothing — it simply runs off. You must loosen and prepare the earth first. Only then does water reach the roots."
+    </p>
+    <p>
+      Korean aesthetics have understood this principle for generations. The ritual is not about adding more. It is about creating the conditions for what you already own to actually work. Open the window, then let the light in.
+    </p>
+  </div>
+</div>
+
+<!-- ═══ SECTION 3: DISCOVERY ═══ -->
+<article class="article">
+  <div class="reveal">
+    <h2>The protocol designed around the <em>absorption window</em></h2>
+    <p>
+      This is the insight that led to GlowFusion PRO. Not another serum. Not another ingredient. A protocol — a precise, three-step method built around one idea: <strong>create the window of absorption first, then fill it.</strong>
+    </p>
+    <p>
+      Rather than asking your skin to do the work it no longer does naturally, GlowFusion PRO temporarily and gently opens the surface barrier, allows your existing products to flood in at the exact moment of maximum receptivity, then seals everything in so it cannot escape.
+    </p>
+    <p>
+      It does not replace the serums you love. It does not ask you to buy more. It simply gives everything you already have a direct path to the layers where they can change the way your skin actually looks.
+    </p>
+  </div>
+</article>
+
+<!-- ═══ SECTION 4: THE PROTOCOL ═══ -->
+<section class="protocol-section">
+  <div class="protocol-heading reveal">
+    <h2>Three steps. One intention: your serums, finally absorbed.</h2>
+    <p>The GlowFusion PRO protocol replaces the ritual, not the ingredients.</p>
+  </div>
+  <div class="protocol-grid">
+    <div class="protocol-step reveal">
+      <span class="step-number">Step 01</span>
+      <div class="step-icon">✦</div>
+      <h3>Prepare the skin</h3>
+      <p>The micro-infusion stamp creates a momentary window at the skin's surface — a brief opening where the barrier becomes receptive. This is the step most routines skip entirely.</p>
+    </div>
+    <div class="protocol-step reveal reveal-delay-1">
+      <span class="step-number">Step 02</span>
+      <div class="step-icon">◈</div>
+      <h3>Fill the skin</h3>
+      <p>The high-frequency wand drives your existing serums — PDRN, hyaluronic acid, whatever you love — deep past the surface layer while the window is still open. They go where they have never been able to go before.</p>
+    </div>
+    <div class="protocol-step reveal reveal-delay-2">
+      <span class="step-number">Step 03</span>
+      <div class="step-icon">○</div>
+      <h3>Seal the skin</h3>
+      <p>Centella Relief Cream closes the barrier, sealing in everything delivered — locking the hydration, the repair, and the glow for hours. Your skin stops losing what it has finally gained.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 5: TESTIMONIAL ═══ -->
+<section class="testimonial-section">
+  <div class="testimonial-card reveal">
+    <div class="testimonial-stars">
+      <div class="star"></div><div class="star"></div><div class="star"></div>
+      <div class="star"></div><div class="star"></div>
+    </div>
+    <p class="testimonial-quote">
+      "On Zoom calls, I always looked 'perpetually tired.' I had spent close to a thousand euros on serums over two years — nothing changed. Within two weeks of using GlowFusion PRO, my daughter asked if I had done something. Had I had surgery? No. I did not buy any new serums. I simply changed the way I used them."
+    </p>
+    <p class="testimonial-name">Marie-Claire, 51 &nbsp;·&nbsp; Verified purchase</p>
+  </div>
+</section>
+
+<!-- ═══ STATS ═══ -->
+<section class="stats-section">
+  <div class="stats-inner">
+    <span class="stats-eyebrow reveal">Results from 93,000+ women in our community</span>
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <span class="stat-num">91<span>%</span></span>
+        <p class="stat-label">Saw a visible improvement<br>in skin texture</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <span class="stat-num">88<span>%</span></span>
+        <p class="stat-label">Felt measurably more<br>hydrated within one week</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <span class="stat-num">94<span>%</span></span>
+        <p class="stat-label">Reported better absorption<br>of their existing products</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE 2 -->
+<blockquote class="pull-quote reveal" style="margin-top:0">
+  <p class="pull-quote-text">
+    "I did not skip foundation because of the serum. I skipped foundation because of what the serum finally reached."
+  </p>
+  <p class="pull-quote-source">Anna, 48 · GlowFusion PRO community</p>
+</blockquote>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <div class="cta-eyebrow reveal">The protocol is ready for you</div>
+  <h2 class="reveal reveal-delay-1">
+    Your skin does not need<br>
+    more products. It needs a<br>
+    <em>better path.</em>
+  </h2>
+  <p class="reveal reveal-delay-2">
+    See how the three-step GlowFusion PRO protocol works — and what women over 40 are reporting after their first seven days.
+  </p>
+  <div class="reveal reveal-delay-3">
+    <a href="/products/glowfusion-pro" class="cta-btn">
+      <span>Explore the GlowFusion Protocol →</span>
+    </a>
+    <p class="cta-guarantee">90-day money-back guarantee · Free worldwide shipping</p>
+  </div>
+  <div class="cta-trust-row reveal">
+    <div class="cta-trust-item">
+      <span class="cta-trust-icon">✦</span>
+      <span class="cta-trust-text">93,000+ women</span>
+    </div>
+    <div class="cta-trust-item">
+      <span class="cta-trust-icon">◈</span>
+      <span class="cta-trust-text">4.8 star rating</span>
+    </div>
+    <div class="cta-trust-item">
+      <span class="cta-trust-icon">○</span>
+      <span class="cta-trust-text">Korean-inspired protocol</span>
+    </div>
+    <div class="cta-trust-item">
+      <span class="cta-trust-icon">✦</span>
+      <span class="cta-trust-text">No subscription required</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer-bar">
+  © 2025 <a href="https://glowfusions.com">GlowFusions.com</a> &nbsp;·&nbsp; Editorial content produced by The Skin Health Journal &nbsp;·&nbsp; Individual results may vary.
+</div>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
