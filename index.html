@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Why Your Expensive Skincare Stops Working After 40 | The Skin Health Journal</title>
+
+<!-- PRELOAD hero image — must be first, before fonts -->
+<link rel="preload" as="image"
+      href="https://raw.githubusercontent.com/overgraw/skin-journa/main/skinca-hero.png"
+      fetchpriority="high">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
@@ -146,7 +152,8 @@ body {
   position: relative;
   max-width: 860px;
   margin: 0 auto 80px;
-  padding: 0 0;
+  /* FIX: reserve exact space before image loads → eliminates CLS */
+  aspect-ratio: 860 / 480;
 }
 .hero-img-wrap::before {
   content: '';
@@ -634,9 +641,18 @@ body {
   </div>
 </section>
 
-<!-- HERO IMAGE -->
-<div class="hero-img-wrap reveal">
-<img src="https://raw.githubusercontent.com/overgraw/skin-journa/main/skinca-hero.png" alt="Woman with glowing skin — GlowFusion PRO" class="hero-img">
+<!-- HERO IMAGE — FIX: no reveal class (was hiding LCP image with opacity:0) -->
+<div class="hero-img-wrap">
+  <img
+    src="https://raw.githubusercontent.com/overgraw/skin-journa/main/skinca-hero.png"
+    alt="Woman with glowing skin — GlowFusion PRO"
+    class="hero-img"
+    width="860"
+    height="480"
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+  >
   <p class="hero-img-caption">Photo: A softer approach to skin — preparing the surface before it can receive.</p>
 </div>
 
